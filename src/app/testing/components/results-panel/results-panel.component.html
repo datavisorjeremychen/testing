@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-h">
+    <div class="card-title">Results</div>
+    <div class="tabs">
+      <button class="pill" [class.active]="view==='summary'" (click)="viewChange.emit('summary')">Summary</button>
+      <button class="pill" [class.active]="view==='events'" (click)="viewChange.emit('events')">Events</button>
+      <button class="pill" [class.active]="view==='clauses'" (click)="viewChange.emit('clauses')">Clause Eval</button>
+      <button class="pill" [class.active]="view==='sql'" (click)="viewChange.emit('sql')">SQL</button>
+    </div>
+    <div class="actions">
+      <button class="btn" (click)="run()" [disabled]="running">Run Test</button>
+    </div>
+  </div>
+
+  <div *ngIf="running" class="progress">
+    <div class="bar" [style.width.%]="progress"></div>
+    <div class="muted">Creating the test… {{progress}}%</div>
+  </div>
+
+  <ng-container *ngIf="!running && res">
+    <dv-summary-cards *ngIf="view==='summary'" [metrics]="res.metrics" [config]="config"></dv-summary-cards>
+    <dv-events-table *ngIf="view==='events'" [rows]="res.rows"></dv-events-table>
+    <dv-clauses-view *ngIf="view==='clauses'" [rows]="res.rows"></dv-clauses-view>
+    <dv-sql-view *ngIf="view==='sql'" [sql]="res.sql" (rerun)="run()"></dv-sql-view>
+  </ng-container>
+
+  <div *ngIf="!running && !res" class="muted">Run a test to see results.</div>
+</div>

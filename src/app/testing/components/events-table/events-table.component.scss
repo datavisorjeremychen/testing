@@ -1,0 +1,12 @@
+.table{border:1px solid #e5e7eb;border-radius:10px;overflow:hidden}
+.trow{display:grid;grid-template-columns:220px 150px 140px 90px 120px 100px 140px;gap:8px;padding:8px 10px;border-top:1px solid #e5e7eb;align-items:center}
+.trow.thead{background:#f9fafb;font-weight:600;border-top:none}
+.mono{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
+.badge{border-radius:999px;padding:2px 8px;border:1px solid #e5e7eb;font-size:12px;background:#fff}
+.badge-blue{color:#0b3ea2;border-color:#a7c0ff;background:#eef4ff}
+.badge-gray{color:#374151;border-color:#d1d5db;background:#f3f4f6}
+.badge-red{color:#991b1b;border-color:#fecaca;background:#fee2e2}
+.badge-green{color:#065f46;border-color:#bbf7d0;background:#ecfdf5}
+.btn{background:#2563eb;color:#fff;border:none;border-radius:8px;padding:8px 12px;cursor:pointer}
+.ghost{background:#fff;color:#2563eb;border:1px solid #2563eb}
+.table-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}

@@ -1,0 +1,17 @@
+<div class="table">
+  <div class="trow thead">
+    <div>Event ID</div><div>Time</div><div>Type</div><div>Amt</div><div>Label</div><div>Hit</div><div>Action/Score</div>
+  </div>
+  <div class="trow" *ngFor="let r of rows">
+    <div class="mono">{{r.eventId}}</div>
+    <div>{{r.eventTime}}</div>
+    <div>{{r.eventType}}</div>
+    <div>{{r.amount ?? '—'}}</div>
+    <div><span [class.badge-red]="r.label==='fraud'" [class.badge-green]="r.label==='legit'" class="badge">{{r.label || '—'}}</span></div>
+    <div><span class="badge" [class.badge-blue]="r.hit" [class.badge-gray]="!r.hit">{{r.hit ? 'Detected' : 'Miss'}}</span></div>
+    <div>{{r.action || (r.score!=null ? (r.score | number:'1.2-2') : '—')}}</div>
+  </div>
+</div>
+<div class="table-actions">
+  <button class="btn ghost" (click)="exportCsv()">Export CSV</button>
+</div>

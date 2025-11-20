@@ -1,0 +1,13 @@
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.kcard{border:1px solid #e5e7eb;border-radius:12px;padding:10px}
+.knum{font-weight:700;font-size:18px}
+.klabel{font-size:12px;color:#6b7280}
+.mtrx{border:1px dashed #e5e7eb;border-radius:12px;padding:10px}
+.mtrx-title{font-weight:600;margin-bottom:6px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mt6{margin-top:6px}
+.tiny-bar{height:8px;background:#eef2ff;border:1px solid #c7d2fe;border-radius:999px;margin-top:8px}
+.tiny-fill{height:100%;background:#2563eb;border-radius:999px}
+.small{font-size:12px}
+.muted{color:#6b7280}

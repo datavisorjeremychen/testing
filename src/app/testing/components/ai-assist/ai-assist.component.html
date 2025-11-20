@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-h"><div class="card-title">AI Assist</div></div>
+  <div class="ai-tip">
+    <b>Which mode should I pick?</b>
+    <ul>
+      <li><span class="pill">Stored</span> fast checks on saved features.</li>
+      <li><span class="pill">Recompute</span> highest fidelity to current defs.</li>
+      <li><span class="pill">Quick</span> deep dive on specific events.</li>
+    </ul>
+    <div class="muted">Based on your config, I recommend: <b>{{recommendation}}</b></div>
+  </div>
+  <div class="ai-tip">
+    <b>Suggested filters</b>
+    <div class="chips">
+      <button class="chip" (click)="applyChip('amount>500')">amount &gt; 500</button>
+      <button class="chip" (click)="applyChip('NOT USA')">NOT USA</button>
+      <button class="chip" (click)="applyChip('token_swap')">event=token_swap</button>
+    </div>
+  </div>
+</div>
