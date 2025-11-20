@@ -1,0 +1,19 @@
+<div class="wrap">
+  <div class="hdr">
+    <div class="crumbs">Rules Engine › Testing</div>
+    <div class="title-row">
+      <h1>Unified Test Center</h1>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="left">
+      <dv-config-panel [(config)]="config"></dv-config-panel>
+      <dv-ai-assist [(config)]="config"></dv-ai-assist>
+    </div>
+
+    <div class="right">
+      <dv-results-panel [config]="config" [view]="view" (viewChange)="onSwitchView($event)" (ran)="onRun($event)"></dv-results-panel>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px}
+.card-h{display:flex;align-items:center;gap:10px}
+.card-title{font-weight:600}
+.tabs{margin-left:auto;display:flex;gap:6px}
+.actions{margin-left:8px}
+.pill{border:1px solid #e5e7eb;background:#fff;border-radius:999px;padding:6px 10px;font-size:12px}
+.pill.active{background:#e8efff;border-color:#bdd1ff}
+.btn{background:#2563eb;color:#fff;border:none;border-radius:8px;padding:8px 12px;cursor:pointer}
+.progress{background:#f3f4f6;border:1px solid #e5e7eb;border-radius:10px;padding:8px;margin-top:8px}
+.bar{height:6px;background:#2563eb;border-radius:6px;margin-bottom:6px;transition:width .3s}
+.muted{color:#6b7280}

@@ -1,0 +1,6 @@
+<label class="muted">Generated SQL (read-only)</label>
+<textarea rows="8" [value]="sql" readonly></textarea>
+<div class="row gap">
+  <button class="btn ghost" (click)="copy()">Copy SQL</button>
+  <button class="btn" (click)="rerun.emit()">Rerun</button>
+</div>

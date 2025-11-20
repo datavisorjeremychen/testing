@@ -1,0 +1,35 @@
+<div class="cards3">
+  <div class="kcard"><div class="knum">{{metrics.total | number}}</div><div class="klabel">Total Events</div></div>
+  <div class="kcard"><div class="knum">{{metrics.detections}}</div><div class="klabel">Total Detections</div></div>
+  <div class="kcard"><div class="knum">{{(metrics.detectionRatio*100) | number:'1.2-2'}}%</div><div class="klabel">Detection Ratio</div></div>
+</div>
+<div class="cards3">
+  <div class="mtrx">
+    <div class="mtrx-title">Confusion Matrix</div>
+    <div class="grid2">
+      <div>TP: <b>{{metrics.tp ?? 'N/A'}}</b></div>
+      <div>FP: <b>{{metrics.fp ?? 'N/A'}}</b></div>
+      <div>FN: <b>{{metrics.fn ?? 'N/A'}}</b></div>
+      <div>TN: <b>{{metrics.tn ?? 'N/A'}}</b></div>
+    </div>
+    <div class="grid3 mt6">
+      <div>Precision: <b>{{fmt(metrics.precision)}}</b></div>
+      <div>Recall: <b>{{fmt(metrics.recall)}}</b></div>
+      <div>F1: <b>{{fmt(metrics.f1)}}</b></div>
+    </div>
+  </div>
+  <div class="mtrx">
+    <div class="mtrx-title">Capture & Workload</div>
+    <div class="grid2">
+      <div>Capture: <b>{{fmt(metrics.captureRate)}}</b></div>
+      <div>Workload: <b>{{fmt(metrics.workloadRate)}}</b></div>
+    </div>
+    <div class="tiny-bar"><div class="tiny-fill" [style.width.%]="(metrics.captureRate||0)*100"></div></div>
+  </div>
+  <div class="mtrx">
+    <div class="mtrx-title">Notes</div>
+    <div class="muted small">
+      Mode: <b>{{ labelMode(config.mode) }}</b>.
+    </div>
+  </div>
+</div>

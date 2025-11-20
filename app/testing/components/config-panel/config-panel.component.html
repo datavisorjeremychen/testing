@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-h">
+    <div class="card-title">Configure</div>
+  </div>
+  <div class="mode-tabs">
+    <button class="tab" [class.active]="config.mode==='quick'" (click)="setMode('quick')">Quick Replay</button>
+    <button class="tab" [class.active]="config.mode==='stored'" (click)="setMode('stored')">Stored Data</button>
+    <button class="tab" [class.active]="config.mode==='recompute'" (click)="setMode('recompute')">Recompute</button>
+  </div>
+
+  <div class="form-grid">
+    <label>Artifact</label>
+    <select [(ngModel)]="config.artifact" (ngModelChange)="emit()">
+      <option>Rules</option><option>Scorecards</option><option>Decision Flows</option>
+    </select>
+
+    <label>Version</label>
+    <select [(ngModel)]="config.version" (ngModelChange)="emit()">
+      <option value="Published">Published</option>
+      <option value="Draft">Draft</option>
+      <option value="Select">Select My Own…</option>
+    </select>
+
+    <label>Input Data</label>
+    <select [(ngModel)]="config.inputType" (ngModelChange)="emit()">
+      <option value="production">Production (historical)</option>
+      <option value="manual">Manual Input</option>
+      <option value="dataset">Dataset (upload)</option>
+    </select>
+
+    <ng-container *ngIf="config.mode!=='quick'">
+      <label>Time Range</label>
+      <div class="row">
+        <input type="datetime-local" [(ngModel)]="config.fromTime" (ngModelChange)="emit()">
+        <input type="datetime-local" [(ngModel)]="config.toTime" (ngModelChange)="emit()">
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="config.mode==='quick'">
+      <label>Event IDs</label>
+      <textarea rows="3" [(ngModel)]="config.eventIds" (ngModelChange)="emit()" placeholder="comma/space separated"></textarea>
+    </ng-container>
+
+    <label>Label (optional)</label>
+    <select [(ngModel)]="config.label" (ngModelChange)="emit()">
+      <option value="">none</option>
+      <option value="transaction_label">transaction_label</option>
+      <option value="case_label">case_label</option>
+    </select>
+
+    <label>Event Types (optional)</label>
+    <input [(ngModel)]="config.eventTypes" (ngModelChange)="emit()" placeholder="auth, token_swap">
+
+    <div class="hr"></div>
+
+    <details>
+      <summary>Advanced Filters</summary>
+      <div class="adv-grid">
+        <label>Merchant ID</label><input [(ngModel)]="config.adv.merchant" (ngModelChange)="emit()">
+        <label>User/Account</label><input [(ngModel)]="config.adv.user" (ngModelChange)="emit()">
+        <label>Amount Range</label>
+        <div class="row"><input type="number" min="0" [(ngModel)]="config.adv.minAmt" (ngModelChange)="emit()" placeholder="min">
+        <input type="number" min="0" [(ngModel)]="config.adv.maxAmt" (ngModelChange)="emit()" placeholder="max"></div>
+        <label>Geography</label><input [(ngModel)]="config.adv.geo" (ngModelChange)="emit()" placeholder="NOT USA">
+      </div>
+    </details>
+  </div>
+
+  <div class="card-f">
+    <button class="btn ghost" (click)="prefill()">AI: Auto-fill</button>
+  </div>
+</div>

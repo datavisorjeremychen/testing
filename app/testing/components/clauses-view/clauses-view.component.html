@@ -1,0 +1,24 @@
+<div class="flex">
+  <div class="left">
+    <div class="list">
+      <div class="row head"><div>Event</div><div>Hit</div></div>
+      <div class="row" *ngFor="let r of rows" (click)="select(r)">
+        <div class="mono">{{r.eventId}}</div>
+        <div>{{r.hit ? 'Yes' : 'No'}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div *ngIf="!focused" class="muted">Pick an event to view clause-by-clause evaluation.</div>
+    <div *ngIf="focused">
+      <div class="focus-h"><b>Event:</b> <span class="mono">{{focused.eventId}}</span></div>
+      <div class="trow thead mt8"><div>Clause</div><div>Value</div><div>Passed</div><div>Details</div></div>
+      <div class="trow" *ngFor="let c of focused.why">
+        <div class="mono">{{c.clause}}</div>
+        <div>{{c.value === undefined ? '—' : c.value}}</div>
+        <div><span class="badge" [class.badge-blue]="c.passed" [class.badge-gray]="!c.passed">{{c.passed ? 'Yes' : 'No'}}</span></div>
+        <div class="muted">{{c.details || '—'}}</div>
+      </div>
+    </div>
+  </div>
+</div>
